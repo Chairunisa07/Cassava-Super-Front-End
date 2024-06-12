@@ -10,18 +10,20 @@ const Userlist = () => {
   }, []);
 
   const getUsers = async () => {
-    const response = await axios.get("http://localhost:5000/users");
+    const response = await axios.get(`https://c-greenproject.org:8000/users/`);
     setUsers(response.data);
   };
 
   const deleteUser = async (userId) => {
-    await axios.delete(`http://localhost:5000/users/${userId}`);
+    await axios.delete(`https://c-greenproject.org:8000/users/${userId}`);
     getUsers();
   };
 
   return (
     <div>
-      <h2 className="title"><strong>List of Users</strong></h2>
+      <h2 className="title">
+        <strong>List of Users</strong>
+      </h2>
       <Link to="/users/add" type="button" class="btn btn-primary mb-2">
         Add New
       </Link>
@@ -47,13 +49,15 @@ const Userlist = () => {
               <td className="text-center">
                 <Link
                   to={`/users/edit/${user.uuid}`}
-                  type="button" class="btn btn-info button-tabel"
+                  type="button"
+                  class="btn btn-info button-tabel"
                 >
                   Edit
                 </Link>
                 <button
                   onClick={() => deleteUser(user.uuid)}
-                  type="button" class="btn btn-danger button-tabel ms-2"
+                  type="button"
+                  class="btn btn-danger button-tabel ms-2"
                 >
                   Delete
                 </button>

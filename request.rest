@@ -1,0 +1,7 @@
+GET http://c-greenproject.org:8000/login
+Content-Type: application/json
+
+{
+    "email" : "admin@gmail.com",
+    "password" : "123456"
+}

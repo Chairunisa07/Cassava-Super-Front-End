@@ -13,7 +13,7 @@ const FormEditOrder = () => {
     const getProductById = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/products/${id}`
+          `https://c-greenproject.org:8000/products/${id}`
         );
         setName(response.data.name);
         setPrice(response.data.price);
@@ -29,7 +29,7 @@ const FormEditOrder = () => {
   const updateProduct = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/products/${id}`, {
+      await axios.patch(`https://c-greenproject.org:8000/products/${id}`, {
         name: name,
         price: price,
       });
@@ -43,10 +43,10 @@ const FormEditOrder = () => {
 
   return (
     <div>
-        <nav aria-label="breadcrumb pb-0">
+      <nav aria-label="breadcrumb pb-0">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="/panen" >Order Panen</a>
+            <a href="/panen">Order Panen</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
             Edit Order
@@ -54,7 +54,10 @@ const FormEditOrder = () => {
         </ol>
       </nav>
 
-      <h2 className="title"> <strong>Edit Order</strong></h2>
+      <h2 className="title">
+        {" "}
+        <strong>Edit Order</strong>
+      </h2>
       <div className="card is-shadowless ">
         <div className="card-content mb-4">
           <div className="content ps-4">

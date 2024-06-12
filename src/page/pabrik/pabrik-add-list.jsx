@@ -25,7 +25,7 @@ const PabrikAddList = () => {
   const savePabrik = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/pabrik", {
+      await axios.post(`https://c-greenproject.org:8000/pabrik`, {
         tanggalPenerimaan,
         beratTotalDiterima: parseInt(beratTotalDiterima),
         evaluasiKualitas,
